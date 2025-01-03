@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Dashboard</title>
+    <link rel="stylesheet" href="CSS/home.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>Creative Budget Planner Dashboard</h1>
+        </header>
+        
+        <div class="dashboard-grid">
+            <!-- Overview Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Overview</h2>
+                </div>
+                <div class="card-content">
+                    <div class="summary-stats">
+                        <div class="stat-box">
+                            <div class="stat-label">Total Income</div>
+                            <div class="stat-value income" id="totalIncome">$5,000</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Total Expenses</div>
+                            <div class="stat-value expense" id="totalExpenses">$1,200</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Balance</div>
+                            <div class="stat-value" id="balance">$3,800</div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="spendingChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Management Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>User Management</h2>
+                </div>
+                <div class="card-content">
+                    <form id="userForm" class="input-form">
+                        <div class="form-row">
+                            <input type="text" id="userName" placeholder="User Name" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="email" id="userEmail" placeholder="Email" required>
+                        </div>
+                        <div class="form-row">
+                            <select id="userRole" required>
+                                <option value="">Select Role</option>
+                                <option value="admin">Admin</option>
+                                <option value="user">User</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Add User</button>
+                        </div>
+                    </form>
+                    <div class="list-container">
+                        <div id="userList" class="data-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transactions Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Transaction Management</h2>
+                </div>
+                <div class="card-content">
+                    <form id="transactionForm" class="input-form">
+                        <div class="form-row">
+                            <input type="text" id="description" placeholder="Description" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" id="amount" placeholder="Amount" required>
+                            <select id="type" required>
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Add Transaction</button>
+                        </div>
+                    </form>
+                    <div class="list-container">
+                        <div id="transactionList" class="data-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notifications Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Notifications</h2>
+                </div>
+                <div class="card-content">
+                    <div id="notificationList" class="notification-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="JS/home.js"></script>
+</body>
+</html>
